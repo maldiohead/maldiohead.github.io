@@ -1,1 +1,3 @@
-this is nolan's homepage
+---
+layout: home
+---
