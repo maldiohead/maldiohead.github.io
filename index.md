@@ -1,3 +1,3 @@
 ---
-layout: home
+layout: Nolan's home
 ---
