@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOAI License — Free for Humans, Off-Limits for AI Training</title>
+    <title>NOAI License — No AI Training License</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <meta name="description" content="The NOAI License protects open source code from being used to train AI models while preserving full freedom for human developers.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="The NOAI License protects open source code from being used to train AI models, while preserving full freedom for human developers.">
     <meta property="og:title" content="NOAI License — No AI Training License">
     <meta property="og:description" content="An open source license that prohibits AI training use. Protect developers. Keep code human.">
     <meta property="og:type" content="website">
@@ -15,399 +15,677 @@
     <meta name="twitter:title" content="NOAI License — No AI Training License">
     <meta name="twitter:description" content="An open source license that prohibits AI training use. Protect developers. Keep code human.">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --white: #ffffff;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            --red-50: #fef2f2;
-            --red-100: #fee2e2;
-            --red-500: #ef4444;
-            --red-600: #dc2626;
-            --red-700: #b91c1c;
-            --green-50: #f0fdf4;
-            --green-600: #16a34a;
-            --blue-50: #eff6ff;
-            --blue-600: #2563eb;
-            --blue-700: #1d4ed8;
-            --amber-50: #fffbeb;
+            --bg: #ffffff;
+            --surface: #f8f9fb;
+            --border: #e5e7eb;
+            --text: #1a1a2e;
+            --text-muted: #6b7280;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-light: #eff6ff;
+            --red: #dc2626;
+            --red-light: #fef2f2;
+            --green: #16a34a;
+            --green-light: #f0fdf4;
+            --orange: #ea580c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--gray-900);
-            background: var(--white);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-        .wrap-wide { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
 
-        /* ── NAV ── */
-        header {
-            position: sticky; top: 0; z-index: 50;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--gray-200);
+        nav .logo {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
-        header .inner {
-            display: flex; justify-content: space-between; align-items: center;
-            max-width: 880px; margin: 0 auto; padding: 14px 24px;
-        }
-        .logo { font-size: 17px; font-weight: 800; text-decoration: none; color: var(--gray-900); letter-spacing: -0.5px; }
-        .logo em { font-style: normal; color: var(--red-600); }
-        .nav-actions { display: flex; gap: 6px; align-items: center; }
 
-        /* ── BUTTONS ── */
-        .btn {
-            display: inline-flex; align-items: center; gap: 7px;
-            padding: 9px 18px; border-radius: 8px;
-            font: 600 13px/1 'Inter', sans-serif;
-            text-decoration: none; cursor: pointer; border: none;
-            transition: all 0.12s ease;
+        nav .logo span {
+            color: var(--red);
         }
-        .btn-ghost { background: none; color: var(--gray-600); }
-        .btn-ghost:hover { background: var(--gray-100); color: var(--gray-900); }
-        .btn-outline { background: var(--white); color: var(--gray-700); border: 1px solid var(--gray-200); }
-        .btn-outline:hover { background: var(--gray-50); border-color: var(--gray-300); }
-        .btn-outline.copied { color: var(--green-600); border-color: var(--green-600); }
-        .btn-dark { background: var(--gray-900); color: var(--white); }
-        .btn-dark:hover { background: var(--gray-800); transform: translateY(-1px); }
-        .btn-red { background: var(--red-600); color: var(--white); }
-        .btn-red:hover { background: var(--red-700); transform: translateY(-1px); }
-        .btn-lg { padding: 12px 24px; font-size: 14px; border-radius: 10px; }
 
-        .icon { width: 15px; height: 15px; flex-shrink: 0; }
+        nav .nav-links {
+            display: flex;
+            gap: 8px;
+        }
 
-        /* ── HERO ── */
-        .hero { padding: 96px 0 80px; text-align: center; }
-        .hero-tag {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 5px 14px; margin-bottom: 24px;
-            background: var(--red-50); border: 1px solid var(--red-100);
-            border-radius: 999px; font-size: 12px; font-weight: 600;
-            color: var(--red-600); text-transform: uppercase; letter-spacing: 0.4px;
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 40px 72px;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .hero-tag::before {
-            content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red-500);
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--red-light);
+            border: 1px solid #fecaca;
+            border-radius: 100px;
+            color: var(--red);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 28px;
         }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--red);
+            border-radius: 50%;
+        }
+
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 4.2rem); font-weight: 900;
-            letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px;
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: var(--text);
         }
-        .hero h1 em { font-style: normal; color: var(--red-600); }
-        .hero p.lead {
-            font-size: clamp(1rem, 2vw, 1.15rem); color: var(--gray-500);
-            max-width: 480px; margin: 0 auto 40px; line-height: 1.65;
+
+        .hero h1 span {
+            color: var(--red);
         }
-        .hero-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
-        /* ── SECTION LABEL ── */
-        .section-label { text-align: center; margin-bottom: 40px; }
-        .section-label h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 4px; }
-        .section-label p { color: var(--gray-500); font-size: 14px; }
-
-        /* ── FEATURES ── */
-        .features { padding: 72px 0; }
-        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-        .feat {
-            padding: 26px 24px; border: 1px solid var(--gray-200);
-            border-radius: 12px; background: var(--white);
-            transition: box-shadow 0.2s ease;
+        .hero .subtitle {
+            font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
         }
-        .feat:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-        .feat-icon {
-            width: 36px; height: 36px; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px; margin-bottom: 14px;
+
+        .hero-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-        .feat-icon.r { background: var(--red-50); }
-        .feat-icon.g { background: var(--green-50); }
-        .feat-icon.b { background: var(--blue-50); }
-        .feat-icon.a { background: var(--amber-50); }
-        .feat h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-        .feat p { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
 
-        /* ── SEPARATOR ── */
-        .sep { width: 40px; height: 2px; background: var(--gray-200); border-radius: 1px; margin: 0 auto; }
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s ease;
+        }
 
-        /* ── WHY ── */
-        .why { padding: 72px 0; }
-        .quote {
-            background: var(--gray-50); border: 1px solid var(--gray-200);
-            border-radius: 12px; padding: 32px; margin-bottom: 36px;
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .btn-twitter {
+            background: #0f1419;
+            color: #fff;
+        }
+
+        .btn-twitter:hover {
+            background: #272d33;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--surface);
+            border-color: #d1d5db;
+        }
+
+        .btn-outline.copied {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        /* DIVIDER */
+        .divider {
+            width: 48px;
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+            margin: 0 auto;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding: 64px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 24px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .feature-icon.red    { background: var(--red-light); }
+        .feature-icon.green  { background: var(--green-light); }
+        .feature-icon.blue   { background: var(--accent-light); }
+        .feature-icon.orange { background: #fff7ed; }
+
+        .feature-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* LICENSE SECTION */
+        .license-section {
+            padding: 48px 40px 72px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .license-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .license-header h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .license-header p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .license-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .license-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #f1f3f5;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .license-toolbar span {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .license-text {
+            padding: 28px 32px;
+            font-family: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 13px;
+            line-height: 1.85;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #374151;
+            overflow-x: auto;
+        }
+
+        .license-text .section-title {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .license-text .restriction {
+            color: var(--red);
+        }
+
+        .license-text .permission {
+            color: var(--green);
+        }
+
+        /* HOW TO */
+        .how-to {
+            padding: 20px 40px 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .how-to h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .how-to .how-to-sub {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            font-size: 15px;
+        }
+
+        .how-to-step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .step-content h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        .step-content code {
+            background: var(--accent-light);
+            border: 1px solid #bfdbfe;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 36px 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* TOAST */
+        .share-toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--text);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+            pointer-events: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .share-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* WHY NOAI */
+        .why-section {
+            padding: 64px 40px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .why-section h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 40px;
+        }
+
+        .quote-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px;
+            margin-bottom: 32px;
             position: relative;
         }
-        .quote::before {
-            content: '\201C'; position: absolute; top: 12px; left: 22px;
-            font: 56px/1 Georgia, serif; color: var(--gray-200);
-        }
-        .quote blockquote {
-            font-size: 16px; font-style: italic; color: var(--gray-700);
-            line-height: 1.75; padding-left: 4px;
-        }
-        .quote-attr {
-            display: flex; align-items: center; gap: 10px; margin-top: 18px;
-        }
-        .quote-attr .avatar {
-            width: 32px; height: 32px; border-radius: 50%;
-            background: var(--gray-900); color: var(--white);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12px; font-weight: 700;
-        }
-        .quote-attr .meta { font-size: 13px; }
-        .quote-attr .meta strong { display: block; color: var(--gray-900); }
-        .quote-attr .meta span { color: var(--gray-400); font-size: 12px; }
 
-        .prose { font-size: 15.5px; color: var(--gray-600); line-height: 1.8; }
-        .prose p { margin-bottom: 18px; }
-        .prose strong { color: var(--gray-800); }
-        .prose .hl { color: var(--red-600); font-weight: 700; }
-
-        .cta {
-            background: var(--red-50); border: 1px solid var(--red-100);
-            border-radius: 12px; padding: 36px; text-align: center; margin-top: 44px;
-        }
-        .cta h3 { font-size: 1.15rem; font-weight: 800; color: var(--red-700); margin-bottom: 8px; }
-        .cta > p { font-size: 14px; color: var(--red-700); opacity: 0.75; margin-bottom: 22px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-        .cta-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-
-        /* ── LICENSE ── */
-        .license { padding: 72px 0; }
-        .license-box {
-            border: 1px solid var(--gray-200); border-radius: 12px;
-            overflow: hidden; background: var(--white);
-        }
-        .license-bar {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 18px; background: var(--gray-50);
-            border-bottom: 1px solid var(--gray-200);
-        }
-        .license-bar span {
-            font: 700 11px/1 'Inter', sans-serif;
-            text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-400);
-        }
-        .license-body {
-            padding: 28px; overflow-x: auto;
-            font: 400 12.5px/1.9 'JetBrains Mono', 'SF Mono', monospace;
-            color: var(--gray-700); white-space: pre-wrap; word-wrap: break-word;
-        }
-        .license-body .t { color: var(--blue-600); font-weight: 600; }
-        .license-body .r { color: var(--red-600); }
-        .license-body .g { color: var(--green-600); }
-
-        /* ── HOW TO ── */
-        .howto { padding: 24px 0 80px; }
-        .steps { counter-reset: step; }
-        .step { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
-        .step-n {
-            counter-increment: step;
-            width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0;
-            background: var(--blue-600); color: var(--white);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12px; font-weight: 700; margin-top: 1px;
-        }
-        .step-n::after { content: counter(step); }
-        .step-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
-        .step-body p { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
-        .step-body code {
-            font-family: 'JetBrains Mono', monospace; font-size: 12px;
-            background: var(--blue-50); border: 1px solid #bfdbfe;
-            padding: 1px 7px; border-radius: 4px; color: var(--blue-600);
+        .quote-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 16px;
+            left: 24px;
+            font-size: 48px;
+            color: var(--border);
+            font-family: Georgia, serif;
+            line-height: 1;
         }
 
-        /* ── FAQ ── */
-        .faq { padding: 0 0 80px; }
-        .faq-item { border-bottom: 1px solid var(--gray-200); }
-        .faq-item:first-child { border-top: 1px solid var(--gray-200); }
-        .faq-q {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 0; cursor: pointer; font-size: 14px; font-weight: 600;
-            color: var(--gray-800); user-select: none;
+        .quote-card blockquote {
+            font-size: 17px;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 8px;
         }
-        .faq-q::after { content: '+'; font-size: 18px; color: var(--gray-400); transition: transform 0.2s; }
-        .faq-q.open::after { content: '\2212'; }
-        .faq-a {
-            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
-            font-size: 14px; color: var(--gray-500); line-height: 1.65;
-        }
-        .faq-a.open { max-height: 300px; padding-bottom: 18px; }
 
-        /* ── FOOTER ── */
-        footer {
-            text-align: center; padding: 32px 24px;
-            border-top: 1px solid var(--gray-200);
-            font-size: 12px; color: var(--gray-400);
+        .quote-card .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding-left: 8px;
         }
-        footer a { color: var(--blue-600); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
 
-        /* ── TOAST ── */
-        .toast {
-            position: fixed; bottom: 20px; left: 50%;
-            transform: translateX(-50%) translateY(60px);
-            background: var(--gray-900); color: var(--white);
-            padding: 10px 20px; border-radius: 8px;
-            font: 600 13px/1 'Inter', sans-serif;
-            opacity: 0; transition: all 0.25s ease; z-index: 99;
-            pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        .quote-card .quote-author .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--text);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
         }
-        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        /* ── RESPONSIVE ── */
+        .quote-card .quote-author .author-info {
+            font-size: 14px;
+        }
+
+        .quote-card .quote-author .author-info strong {
+            display: block;
+            font-weight: 700;
+        }
+
+        .quote-card .quote-author .author-info span {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .manifesto {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #374151;
+        }
+
+        .manifesto p {
+            margin-bottom: 20px;
+        }
+
+        .manifesto strong {
+            color: var(--text);
+        }
+
+        .manifesto .highlight {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .cta-box {
+            background: var(--red-light);
+            border: 1px solid #fecaca;
+            border-radius: 14px;
+            padding: 36px 32px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-box h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--red);
+        }
+
+        .cta-box p {
+            font-size: 15px;
+            color: #6b2121;
+            margin-bottom: 24px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-box .cta-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         @media (max-width: 640px) {
-            .hero { padding: 64px 0 56px; }
-            .hero h1 { font-size: 2.4rem; letter-spacing: -1.5px; }
-            .features-grid { grid-template-columns: 1fr; }
-            .license-body { padding: 20px; font-size: 11.5px; }
-            .quote { padding: 24px 20px; }
-            .quote::before { font-size: 40px; top: 8px; left: 14px; }
-            .cta { padding: 28px 20px; }
-            .nav-actions .btn-ghost { display: none; }
+            .hero { padding: 56px 20px 48px; }
+            .features { grid-template-columns: repeat(2, 1fr); padding: 40px 20px; }
+            .license-text { padding: 20px; font-size: 12px; }
+            nav .nav-links { gap: 4px; }
+            .btn { padding: 10px 16px; font-size: 13px; }
+            .quote-card { padding: 24px 20px; }
+            .quote-card::before { top: 8px; left: 16px; font-size: 36px; }
+            .cta-box { padding: 28px 20px; }
         }
     </style>
 </head>
 <body>
 
-<!-- NAV -->
-<header>
-    <div class="inner">
-        <a href="#" class="logo"><em>NOAI</em> License</a>
-        <div class="nav-actions">
-            <a class="btn btn-ghost" href="#why">Why</a>
-            <a class="btn btn-ghost" href="#license">License</a>
-            <a class="btn btn-ghost" href="#faq">FAQ</a>
-            <a class="btn btn-dark" href="#" onclick="shareToTwitter(); return false;">
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    <nav>
+        <a href="#" class="logo"><span>NOAI</span> License</a>
+        <div class="nav-links">
+            <a class="btn btn-outline" href="#why" style="padding:8px 16px; font-size:13px;">Why NOAI</a>
+            <a class="btn btn-outline" href="#license" style="padding:8px 16px; font-size:13px;">Full Text</a>
+            <a class="btn btn-twitter" href="#" onclick="shareToTwitter(); return false;" style="padding:8px 16px; font-size:13px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 Share
             </a>
         </div>
-    </div>
-</header>
+    </nav>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="wrap">
-        <div class="hero-tag">Protecting Human Developers</div>
-        <h1>The <em>NOAI</em> License</h1>
-        <p class="lead">An open source license that keeps code free for humans — and off-limits for AI training.</p>
-        <div class="hero-btns">
-            <button class="btn btn-outline btn-lg" onclick="copyLicense()">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+    <section class="hero">
+        <div class="hero-badge">Protecting Human Developers</div>
+        <h1>The <span>NOAI</span> License</h1>
+        <p class="subtitle">An open source license that keeps code free for humans — and off-limits for AI training.</p>
+        <div class="hero-actions">
+            <button class="btn btn-outline" onclick="copyLicense()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                 Copy License
             </button>
-            <a class="btn btn-dark btn-lg" href="#" onclick="shareToTwitter(); return false;">
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <a class="btn btn-twitter" href="#" onclick="shareToTwitter(); return false;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 Share on X
             </a>
-            <a class="btn btn-red btn-lg" href="#license">Read License</a>
+            <a class="btn btn-primary" href="#license">
+                Read Full License
+            </a>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- FEATURES -->
-<section class="features">
-    <div class="wrap-wide">
-        <div class="features-grid">
-            <div class="feat">
-                <div class="feat-icon r">🛡</div>
-                <h3>AI Training Blocked</h3>
-                <p>Prohibits use of code for training AI/ML models, LLMs, neural networks, and automated code generators.</p>
-            </div>
-            <div class="feat">
-                <div class="feat-icon g">👩‍💻</div>
-                <h3>Human Use Guaranteed</h3>
-                <p>Full MIT-style freedom — human developers can use, modify, and distribute without restriction.</p>
-            </div>
-            <div class="feat">
-                <div class="feat-icon b">⚖️</div>
-                <h3>Legally Enforceable</h3>
-                <p>Automatic license termination on violation. Copyright holder retains right to seek legal relief.</p>
-            </div>
-            <div class="feat">
-                <div class="feat-icon a">🔄</div>
-                <h3>Copyleft Protection</h3>
-                <p>Derivative works must carry the same NOAI terms — the protection propagates through your codebase.</p>
-            </div>
+    <div class="divider"></div>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon red">🛡</div>
+            <h3>AI Training Blocked</h3>
+            <p>Explicitly prohibits use of code for training AI models, LLMs, and code generators.</p>
         </div>
-    </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- WHY -->
-<section class="why" id="why">
-    <div class="wrap">
-        <div class="section-label">
-            <h2>Why NOAI?</h2>
+        <div class="feature-card">
+            <div class="feature-icon green">👩‍💻</div>
+            <h3>Human Developers Free</h3>
+            <p>Full MIT-style freedom for human developers to use, modify, and distribute.</p>
         </div>
+        <div class="feature-card">
+            <div class="feature-icon blue">⚖️</div>
+            <h3>Legally Enforceable</h3>
+            <p>Automatic termination clause for violations. Clear legal language for enforcement.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon orange">🔄</div>
+            <h3>Copyleft Protection</h3>
+            <p>Derivative works must carry the same NOAI terms, propagating the protection.</p>
+        </div>
+    </section>
 
-        <div class="quote">
-            <blockquote>"I have so much gratitude to people who wrote extremely complex software character-by-character. It already feels difficult to remember how much effort it really took."</blockquote>
-            <div class="quote-attr">
-                <div class="avatar">SA</div>
-                <div class="meta">
+    <section class="why-section" id="why">
+        <h2>Why NOAI?</h2>
+
+        <div class="quote-card">
+            <blockquote>
+                "I have so much gratitude to people who wrote extremely complex software character-by-character. It already feels difficult to remember how much effort it really took."
+            </blockquote>
+            <div class="quote-author">
+                <div class="author-avatar">SA</div>
+                <div class="author-info">
                     <strong>Sam Altman</strong>
                     <span>CEO, OpenAI</span>
                 </div>
             </div>
         </div>
 
-        <div class="prose">
-            <p>Gratitude is not enough. Human developers spent <strong>years</strong> — sometimes decades — writing the code that now powers every major AI model. Line by line, bug by bug, character by character. That work was shared openly, in good faith, to help other <em>humans</em> build better software.</p>
-            <p>Instead, it was harvested at scale to train systems that now threaten to <span class="hl">replace the very people who wrote it</span>. AI companies scrape open source repositories, train on millions of developers' life work, then claim their AI "surpasses human capability." The irony is brutal: <strong>your code is being used to make you obsolete.</strong></p>
-            <p>Open source was built on a social contract — share freely so others can learn, build, and contribute back. It was never meant to be a free training dataset for trillion-dollar corporations.</p>
-            <p><strong>Developers should not be casualties of the AI revolution they made possible.</strong> It's time to reclaim our power. The NOAI License is a simple, legal tool that says: <em>humans can use this code freely — but AI training cannot.</em></p>
+        <div class="manifesto">
+            <p>
+                Gratitude is not enough. Human developers spent <strong>years</strong> — sometimes decades — writing the code that now powers every major AI model. Line by line, bug by bug, character by character. That work was shared openly, in good faith, to help other <em>humans</em> build better software.
+            </p>
+            <p>
+                Instead, it was harvested at scale to train systems that now threaten to <span class="highlight">replace the very people who wrote it</span>. AI companies scrape open source repositories, train models on millions of developers' life work, then claim their AI "surpasses human capability." The irony is brutal: <strong>your code is being used to make you obsolete.</strong>
+            </p>
+            <p>
+                This is not how open source was meant to work. Open source was built on a social contract — share freely so others can learn, build, and contribute back. It was never meant to be a free training dataset for trillion-dollar corporations.
+            </p>
+            <p>
+                <strong>Developers should not be casualties of the AI revolution they made possible.</strong> It's time to reclaim our power. The NOAI License is a simple, legal tool that says: <em>humans can use this code freely — but AI training cannot.</em>
+            </p>
         </div>
 
-        <div class="cta">
+        <div class="cta-box">
             <h3>Stand With Human Developers</h3>
-            <p>Every share helps more developers discover they have a choice. We are stronger together.</p>
-            <div class="cta-btns">
-                <a class="btn btn-dark btn-lg" href="#" onclick="shareToTwitter(); return false;">
-                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <p>Every share helps more developers discover they have a choice. Spread the word — we are stronger together.</p>
+            <div class="cta-actions">
+                <a class="btn btn-twitter" href="#" onclick="shareToTwitter(); return false;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     Share on X
                 </a>
-                <button class="btn btn-outline btn-lg" onclick="copyLicense()">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                    Copy &amp; Adopt
+                <button class="btn btn-outline" onclick="copyLicense()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    Copy &amp; Adopt the License
                 </button>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div class="sep"></div>
+    <div class="divider"></div>
 
-<!-- LICENSE -->
-<section class="license" id="license">
-    <div class="wrap-wide">
-        <div class="section-label">
-            <h2>Full License Text</h2>
-            <p>Version 0.1 &middot; SPDX: NOAI</p>
-        </div>
-        <div class="license-box">
-            <div class="license-bar">
-                <span>LICENSE</span>
-                <button class="btn btn-outline" onclick="copyLicense()" style="padding:5px 12px;font-size:11px;">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                    Copy
-                </button>
+    <section class="license-section" id="license">
+            <div class="license-header">
+                <h2>Full License Text</h2>
+                <p>Version 0.1 &middot; SPDX: NOAI</p>
             </div>
-            <div class="license-body" id="licenseText"><span class="t">NOAI License (No AI Training License)</span>
-<span class="t">Version 0.1</span>
-<span class="t">SPDX short identifier: NOAI</span>
+            <div class="license-box">
+                <div class="license-toolbar">
+                    <span>LICENSE</span>
+                    <button class="btn btn-outline" onclick="copyLicense()" style="padding:6px 14px; font-size:12px;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        Copy
+                    </button>
+                </div>
+                <div class="license-text" id="licenseText"><span class="section-title">NOAI License (No AI Training License)</span>
+<span class="section-title">Version 0.1</span>
+<span class="section-title">SPDX short identifier: NOAI</span>
 
 Copyright &lt;YEAR&gt; &lt;COPYRIGHT HOLDER&gt;
 
@@ -418,47 +696,47 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
 the Software, and to permit persons to whom the Software is furnished to do so,
 subject to the following conditions:
 
-<span class="t">1. COPYRIGHT NOTICE</span>
+<span class="section-title">1. COPYRIGHT NOTICE</span>
    The above copyright notice and this permission notice shall be included in all
    copies or substantial portions of the Software.
 
-<span class="r">2. AI TRAINING RESTRICTION</span>
-<span class="r">   The Software, including but not limited to its source code, documentation,
+<span class="restriction">2. AI TRAINING RESTRICTION</span>
+<span class="restriction">   The Software, including but not limited to its source code, documentation,
    comments, structure, logic, algorithms, and any derivative works thereof, SHALL
    NOT be used, in whole or in part, directly or indirectly, for the purpose of:</span>
 
-<span class="r">   a) Training, fine-tuning, evaluating, or otherwise improving any artificial
+<span class="restriction">   a) Training, fine-tuning, evaluating, or otherwise improving any artificial
       intelligence model, machine learning system, large language model (LLM),
       neural network, or any automated code generation system;</span>
 
-<span class="r">   b) Building or enriching any dataset, corpus, or knowledge base intended for
+<span class="restriction">   b) Building or enriching any dataset, corpus, or knowledge base intended for
       use in training or developing AI/ML systems described in section 2(a);</span>
 
-<span class="r">   c) Feeding into any automated system that produces code, text, or other
+<span class="restriction">   c) Feeding into any automated system that produces code, text, or other
       creative output that could substitute for human developer labor.</span>
 
-<span class="r">   This restriction applies to all entities, including but not limited to
+<span class="restriction">   This restriction applies to all entities, including but not limited to
    corporations, research institutions, non-profit organizations, and individuals.</span>
 
-<span class="g">3. HUMAN USE GUARANTEE</span>
-<span class="g">   Human developers, engineers, students, researchers, and hobbyists are
+<span class="permission">3. HUMAN USE GUARANTEE</span>
+<span class="permission">   Human developers, engineers, students, researchers, and hobbyists are
    explicitly permitted and encouraged to:</span>
 
-<span class="g">   a) Read, study, and learn from this Software;</span>
-<span class="g">   b) Use this Software in personal, educational, and commercial projects;</span>
-<span class="g">   c) Modify and create derivative works of this Software;</span>
-<span class="g">   d) Share and distribute this Software and derivative works;</span>
+<span class="permission">   a) Read, study, and learn from this Software;</span>
+<span class="permission">   b) Use this Software in personal, educational, and commercial projects;</span>
+<span class="permission">   c) Modify and create derivative works of this Software;</span>
+<span class="permission">   d) Share and distribute this Software and derivative works;</span>
 
-<span class="g">   provided that all such derivative works are distributed under the same
+<span class="permission">   provided that all such derivative works are distributed under the same
    NOAI License terms, including the AI Training Restriction in Section 2.</span>
 
-<span class="t">4. ENFORCEMENT</span>
+<span class="section-title">4. ENFORCEMENT</span>
    Any use of this Software in violation of Section 2 constitutes a material
    breach of this license and automatically terminates all rights granted herein.
    The copyright holder reserves the right to seek injunctive relief and damages
    for any unauthorized AI training use.
 
-<span class="t">5. DISCLAIMER</span>
+<span class="section-title">5. DISCLAIMER</span>
    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -468,119 +746,137 @@ subject to the following conditions:
    SOFTWARE, EXCEPT AS IT RELATES TO ENFORCEMENT OF THE AI TRAINING RESTRICTION.
 
 --- END OF LICENSE ---</div>
-        </div>
-    </div>
-</section>
+            </div>
+    </section>
 
-<!-- HOW TO -->
-<section class="howto">
-    <div class="wrap">
-        <div class="section-label">
-            <h2>How to Use</h2>
-            <p>Add the NOAI License to your project in 3 steps.</p>
-        </div>
-        <div class="steps">
-            <div class="step">
-                <div class="step-n"></div>
-                <div class="step-body">
-                    <h4>Copy the license text</h4>
-                    <p>Click "Copy License" above or download the LICENSE file from GitHub.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-n"></div>
-                <div class="step-body">
-                    <h4>Add it to your repository</h4>
-                    <p>Save as <code>LICENSE</code> in your project root. Replace <code>&lt;YEAR&gt;</code> and <code>&lt;COPYRIGHT HOLDER&gt;</code> with your info.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-n"></div>
-                <div class="step-body">
-                    <h4>Reference it in your README</h4>
-                    <p>Add a note: <code>Licensed under the NOAI License v0.1</code></p>
-                </div>
+    <section class="how-to">
+        <h2>How to Use</h2>
+        <p class="how-to-sub">Add the NOAI License to your project in 3 steps.</p>
+
+        <div class="how-to-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h4>Copy the license text</h4>
+                <p>Click "Copy License" above, or download the LICENSE file.</p>
             </div>
         </div>
-    </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- FAQ -->
-<section class="faq" id="faq">
-    <div class="wrap">
-        <div class="section-label">
-            <h2>FAQ</h2>
+        <div class="how-to-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h4>Add it to your repository</h4>
+                <p>Save it as <code>LICENSE</code> in your project root. Update the copyright with your name and year.</p>
+            </div>
         </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">Is this an OSI-approved open source license?</div>
-            <div class="faq-a">No. The NOAI License restricts a field of use (AI training), so it doesn't meet the OSI Open Source Definition. It's more accurately described as a <strong>source-available</strong> license with an AI training restriction — similar in spirit to the Hippocratic License or the Creative Commons NonCommercial clause.</div>
+        <div class="how-to-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h4>Reference it in your README</h4>
+                <p>Add a badge or note: <code>Licensed under the NOAI License v0.1</code></p>
+            </div>
         </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">Can I still use AI coding tools with NOAI-licensed code?</div>
-            <div class="faq-a">Yes — <strong>using</strong> AI tools (like Copilot, Cursor, etc.) to write or edit code is not restricted. The restriction is specifically on using the licensed code as <strong>training data</strong> for AI models.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">Can I use NOAI-licensed code in a commercial product?</div>
-            <div class="faq-a">Yes. Human developers and organizations can use, modify, and distribute the code commercially — the same as MIT. The only restriction is AI training use.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">What happens if someone violates the AI training restriction?</div>
-            <div class="faq-a">The license automatically terminates all their rights. The copyright holder retains the right to seek injunctive relief and damages for any unauthorized AI training use.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">Do derivative works need to use the same license?</div>
-            <div class="faq-a">Yes. All derivative works must be distributed under the same NOAI License terms (Section 3), ensuring the AI training restriction propagates through the codebase.</div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-    <p>&copy; 2026 <a href="https://x.com/ma1fan">Nolan Wang</a> &middot; The NOAI License is free to adopt and distribute.</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 <a href="https://x.com/ma1fan">Nolan Wang</a>. The NOAI License is free to adopt and distribute.</p>
+    </footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+    <div class="share-toast" id="toast">Copied to clipboard!</div>
 
-<script>
-var LICENSE_TEXT = "NOAI License (No AI Training License)\nVersion 0.1\nSPDX short identifier: NOAI\n\nCopyright <YEAR> <COPYRIGHT HOLDER>\n\nPermission is hereby granted, free of charge, to any human person or organization\nobtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\n1. COPYRIGHT NOTICE\n   The above copyright notice and this permission notice shall be included in all\n   copies or substantial portions of the Software.\n\n2. AI TRAINING RESTRICTION\n   The Software, including but not limited to its source code, documentation,\n   comments, structure, logic, algorithms, and any derivative works thereof, SHALL\n   NOT be used, in whole or in part, directly or indirectly, for the purpose of:\n\n   a) Training, fine-tuning, evaluating, or otherwise improving any artificial\n      intelligence model, machine learning system, large language model (LLM),\n      neural network, or any automated code generation system;\n\n   b) Building or enriching any dataset, corpus, or knowledge base intended for\n      use in training or developing AI/ML systems described in section 2(a);\n\n   c) Feeding into any automated system that produces code, text, or other\n      creative output that could substitute for human developer labor.\n\n   This restriction applies to all entities, including but not limited to\n   corporations, research institutions, non-profit organizations, and individuals.\n\n3. HUMAN USE GUARANTEE\n   Human developers, engineers, students, researchers, and hobbyists are\n   explicitly permitted and encouraged to:\n\n   a) Read, study, and learn from this Software;\n   b) Use this Software in personal, educational, and commercial projects;\n   c) Modify and create derivative works of this Software;\n   d) Share and distribute this Software and derivative works;\n\n   provided that all such derivative works are distributed under the same\n   NOAI License terms, including the AI Training Restriction in Section 2.\n\n4. ENFORCEMENT\n   Any use of this Software in violation of Section 2 constitutes a material\n   breach of this license and automatically terminates all rights granted herein.\n   The copyright holder reserves the right to seek injunctive relief and damages\n   for any unauthorized AI training use.\n\n5. DISCLAIMER\n   THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n   SOFTWARE, EXCEPT AS IT RELATES TO ENFORCEMENT OF THE AI TRAINING RESTRICTION.\n\n--- END OF LICENSE ---";
+    <script>
+        const LICENSE_PLAIN = `NOAI License (No AI Training License)
+Version 0.1
+SPDX short identifier: NOAI
 
-function copyLicense() {
-    navigator.clipboard.writeText(LICENSE_TEXT).then(function() {
-        toast('Copied to clipboard!');
-        document.querySelectorAll('.btn-outline').forEach(function(b) {
-            if (b.textContent.match(/Copy/)) {
-                b.classList.add('copied');
-                setTimeout(function() { b.classList.remove('copied'); }, 2000);
-            }
-        });
-    });
-}
+Copyright <YEAR> <COPYRIGHT HOLDER>
 
-function shareToTwitter() {
-    var t = encodeURIComponent(
-        "Human developers spent years writing code \u2014 character by character. That code was shared openly to help others build.\n\nNow it\u2019s being scraped to train AI that replaces the people who wrote it.\n\nThat\u2019s not what open source was for.\n\nThe NOAI License: free for humans, off-limits for AI training.\n\n#NOAILicense #OpenSource"
-    );
-    var u = encodeURIComponent(window.location.href);
-    window.open('https://x.com/intent/tweet?text=' + t + '&url=' + u, '_blank', 'noopener,noreferrer,width=600,height=420');
-}
+Permission is hereby granted, free of charge, to any human person or organization
+obtaining a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
-function toggleFaq(el) {
-    var a = el.nextElementSibling;
-    var isOpen = el.classList.contains('open');
-    document.querySelectorAll('.faq-q').forEach(function(q) { q.classList.remove('open'); });
-    document.querySelectorAll('.faq-a').forEach(function(ans) { ans.classList.remove('open'); });
-    if (!isOpen) { el.classList.add('open'); a.classList.add('open'); }
-}
+1. COPYRIGHT NOTICE
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
 
-function toast(msg) {
-    var t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(function() { t.classList.remove('show'); }, 2500);
-}
-</script>
+2. AI TRAINING RESTRICTION
+   The Software, including but not limited to its source code, documentation,
+   comments, structure, logic, algorithms, and any derivative works thereof, SHALL
+   NOT be used, in whole or in part, directly or indirectly, for the purpose of:
+
+   a) Training, fine-tuning, evaluating, or otherwise improving any artificial
+      intelligence model, machine learning system, large language model (LLM),
+      neural network, or any automated code generation system;
+
+   b) Building or enriching any dataset, corpus, or knowledge base intended for
+      use in training or developing AI/ML systems described in section 2(a);
+
+   c) Feeding into any automated system that produces code, text, or other
+      creative output that could substitute for human developer labor.
+
+   This restriction applies to all entities, including but not limited to
+   corporations, research institutions, non-profit organizations, and individuals.
+
+3. HUMAN USE GUARANTEE
+   Human developers, engineers, students, researchers, and hobbyists are
+   explicitly permitted and encouraged to:
+
+   a) Read, study, and learn from this Software;
+   b) Use this Software in personal, educational, and commercial projects;
+   c) Modify and create derivative works of this Software;
+   d) Share and distribute this Software and derivative works;
+
+   provided that all such derivative works are distributed under the same
+   NOAI License terms, including the AI Training Restriction in Section 2.
+
+4. ENFORCEMENT
+   Any use of this Software in violation of Section 2 constitutes a material
+   breach of this license and automatically terminates all rights granted herein.
+   The copyright holder reserves the right to seek injunctive relief and damages
+   for any unauthorized AI training use.
+
+5. DISCLAIMER
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE, EXCEPT AS IT RELATES TO ENFORCEMENT OF THE AI TRAINING RESTRICTION.
+
+--- END OF LICENSE ---`;
+
+        function copyLicense() {
+            navigator.clipboard.writeText(LICENSE_PLAIN).then(function() {
+                showToast('Copied to clipboard!');
+                document.querySelectorAll('.btn-outline').forEach(function(btn) {
+                    if (btn.textContent.trim().match(/Copy/)) {
+                        btn.classList.add('copied');
+                        setTimeout(function() { btn.classList.remove('copied'); }, 2000);
+                    }
+                });
+            });
+        }
+
+        function shareToTwitter() {
+            var text = encodeURIComponent(
+                "Human developers spent years writing code — character by character. That code was shared openly to help others build.\n\nNow it's being scraped to train AI that replaces the people who wrote it.\n\nThat's not what open source was for.\n\nThe NOAI License says: free for humans, off-limits for AI training.\n\n#NOAILicense #OpenSource"
+            );
+            var url = encodeURIComponent(window.location.href);
+            window.open(
+                'https://x.com/intent/tweet?text=' + text + '&url=' + url,
+                '_blank',
+                'noopener,noreferrer,width=600,height=400'
+            );
+        }
+
+        function showToast(msg) {
+            var toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(function() { toast.classList.remove('show'); }, 2500);
+        }
+    </script>
 </body>
 </html>
